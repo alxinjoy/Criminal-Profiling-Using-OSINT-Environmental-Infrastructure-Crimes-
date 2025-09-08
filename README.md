@@ -20,20 +20,25 @@ pip --version
 Python 3.12.x
 pip 24.x
 
-PSCS_586/
-├── data/
-│   ├── fake_profiles.csv  (generated)
-│   ├── environmental_crimes.csv  (generated)
-│   └── connections.csv  (generated, for network visualization)
-├── models/
-│   ├── fake_detector.pkl  (generated)
-│   ├── scaler.pkl  (generated)
-│   └── metadata.txt  (generated)
-├── generate_datasets.py
-├── train_model.py
-├── app.py
-├── requirements.txt
-└── README.md
+
+## 📂 Project Structure
+
+```plaintext
+📦 PSCS_586
+ ┣ 📂 data
+ ┃ ┣ 📄 fake_profiles.csv
+ ┃ ┣ 📄 environmental_crimes.csv
+ ┃ ┗ 📄 connections.csv
+ ┣ 📂 models
+ ┃ ┣ 📄 fake_detector.pkl
+ ┃ ┣ 📄 scaler.pkl
+ ┃ ┗ 📄 metadata.txt
+ ┣ 📜 generate_datasets.py
+ ┣ 📜 train_model.py
+ ┣ 📜 app.py
+ ┣ 📜 requirements.txt
+ ┗ 📜 README.md
+
 
 🐍 Step 3: Create Project Folder
 
