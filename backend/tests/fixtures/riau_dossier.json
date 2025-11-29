@@ -1,0 +1,101 @@
+{
+  "region": "Riau",
+  "bbox": {
+    "min_lon": 100.0,
+    "min_lat": -1.0,
+    "max_lon": 104.0,
+    "max_lat": 3.0
+  },
+  "generated_at": "2024-01-15T10:30:00Z",
+  "analysis_period_start": "2023-10-15T00:00:00Z",
+  "analysis_period_end": "2024-01-15T00:00:00Z",
+  "hansen": {
+    "total_loss_ha": 15420.5,
+    "loss_by_year": {
+      "2021": 4500.2,
+      "2022": 5120.8,
+      "2023": 5799.5
+    },
+    "tree_cover_percent": 45.2
+  },
+  "gfw_glad": [
+    {
+      "latitude": 1.234,
+      "longitude": 102.456,
+      "date": "2023-12-01T00:00:00Z",
+      "confidence": 85
+    }
+  ],
+  "gfw_radd": [],
+  "firms": [
+    {
+      "latitude": 1.235,
+      "longitude": 102.457,
+      "brightness": 345.5,
+      "confidence": 90,
+      "frp": 25.3,
+      "acquisition_time": "2023-12-02T14:30:00Z",
+      "satellite": "VIIRS",
+      "daynight": "D"
+    }
+  ],
+  "sentinel": {
+    "ndvi": 0.32,
+    "nbr": 0.15,
+    "burn_index": 0.28,
+    "truecolor_url": null
+  },
+  "nearby_infra": [
+    {
+      "osm_id": 12345678,
+      "node_type": "industrial",
+      "name": "Palm Oil Mill",
+      "latitude": 1.230,
+      "longitude": 102.450,
+      "distance_m": 1200,
+      "tags": {"industrial": "palm_oil_mill"}
+    }
+  ],
+  "suspects": [
+    {
+      "name": "Example Palm Oil Corp",
+      "lei": "529900ABC123DEF456GH",
+      "country": "ID",
+      "parent_name": "Example Holdings Ltd",
+      "match_score": 85.5,
+      "source": "gleif"
+    }
+  ],
+  "sentiment": {
+    "google": {"count": 15, "score": -0.45, "keywords": ["deforestation", "fire"], "sample_titles": []},
+    "gdelt": {"count": 32, "score": -0.38, "keywords": ["palm oil", "forest"], "sample_titles": []},
+    "reddit": null,
+    "final_score": -0.42,
+    "confidence": 0.65,
+    "dominant_narrative": "deforestation"
+  },
+  "evidence_chain": [
+    {
+      "suspect": {
+        "name": "Example Palm Oil Corp",
+        "lei": "529900ABC123DEF456GH",
+        "country": "ID",
+        "match_score": 85.5,
+        "source": "gleif"
+      },
+      "links": [
+        {
+          "evidence_type": "spatial_proximity",
+          "description": "Infrastructure within 5000m of 1 damage points",
+          "weight": 0.15,
+          "supporting_data": {"proximity_count": 1, "closest_distance_m": 1200}
+        }
+      ],
+      "total_weight": 0.45,
+      "summary": "Example Palm Oil Corp: Evidence shows spatial correlation with damage sites."
+    }
+  ],
+  "confidence_score": 62.5,
+  "source_errors": [],
+  "coverage_notes": []
+}

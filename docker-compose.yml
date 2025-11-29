@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: eco-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:///./data/dev.db
+      GEE_CREDENTIALS_JSON: /secrets/gee.json
+      GFW_API_KEY: ${GFW_API_KEY}
+      SENTINELHUB_CLIENT_ID: ${SENTINELHUB_CLIENT_ID}
+      SENTINELHUB_CLIENT_SECRET: ${SENTINELHUB_CLIENT_SECRET}
+      SENTINELHUB_INSTANCE_ID: ${SENTINELHUB_INSTANCE_ID}
+      GOOGLE_CSE_API_KEY: ${GOOGLE_CSE_API_KEY}
+      GOOGLE_CSE_ENGINE_ID: ${GOOGLE_CSE_ENGINE_ID}
+      REDDIT_CLIENT_ID: ${REDDIT_CLIENT_ID}
+      REDDIT_CLIENT_SECRET: ${REDDIT_CLIENT_SECRET}
+      REDDIT_USERNAME: ${REDDIT_USERNAME}
+      REDDIT_PASSWORD: ${REDDIT_PASSWORD}
+      REDDIT_USER_AGENT: ${REDDIT_USER_AGENT:-eco-forensics/1.0}
+      API_RATE_LIMIT_PER_MIN: 60
+      DEFAULT_TIMEOUT_SECONDS: 12
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/secrets:/secrets:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    container_name: eco-frontend
+    ports:
+      - "3000:80"
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+
+networks:
+  default:
+    name: eco-forensics-network

@@ -1,0 +1,58 @@
+# ================================
+# Python
+# ================================
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.env
+*.env
+**/venv/
+**/.venv/
+
+
+# ================================
+# Node / Frontend
+# ================================
+node_modules/
+frontend/dist/
+
+
+# ================================
+# Secrets
+# ================================
+backend/secrets/*
+!backend/secrets/.gitkeep
+.env
+backend/.env
+frontend/.env
+
+
+# ================================
+# Database
+# ================================
+backend/data/*.db
+backend/data/*.sqlite
+
+
+# ================================
+# Logs
+# ================================
+*.log
+
+
+# ================================
+# OS / Editor
+# ================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+
+# Ignore all backend runtime data
+backend/data/
+!backend/data/.gitkeep
