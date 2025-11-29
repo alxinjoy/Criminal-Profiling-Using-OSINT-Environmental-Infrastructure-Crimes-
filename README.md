@@ -222,7 +222,6 @@ The README encourages maintainers to check official docs.
 
 # 🙏 Credits
 
-Built by **Albin Joy**  
 Powered by modern OSINT, satellite analytics, and investigative intelligence tooling.  
 Architected with advanced LLM guidance to ensure industry-level structure & clarity.
 
